@@ -1,0 +1,11 @@
+.movielist {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 35px;
+  margin-bottom: 30px;
+}
+
+.pagination__wrapper {
+  display: flex;
+  justify-content: center;
+}

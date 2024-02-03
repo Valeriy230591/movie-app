@@ -1,0 +1,16 @@
+.input__wrapper {
+  margin-top: 100px;
+  padding-bottom: 32px;
+  max-width: 950px;
+  margin: 0 auto;
+}
+.input {
+  height: 40px;
+  margin: 0 auto;
+}
+.spin__wrapper {
+  display: flex;
+  justify-content: center; /* Горизонтальное центрирование */
+  align-items: center; /* Вертикальное центрирование */
+  height: 100vh;
+}
