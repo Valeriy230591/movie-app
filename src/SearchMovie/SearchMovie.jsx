@@ -14,15 +14,19 @@ const SearchMovie = () => {
   const [movies, setMovies] = useState({ results: [] });
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false);
-  const [isOnline, setIsOnline] = useState(true);
-  const [movieNotFound, setMovieNotFound] = useState(false);
+  const [isOnline, setIsOnline] = useState(true); // Состояние сети
+  const [movieNotFound, setMovieNotFound] = useState(false); // Состояние для отслеживания не найденного фильма
 
   const onInputChange = (e) => {
     setSearchValue(e.target.value);
   };
 
   const delayedSearch = debounce((value) => {
-    if (value !== "") {
+    if (value.trim() === "") {
+      // Если строка поиска пуста, установить состояние "Фильм не найден"
+      setMovieNotFound(true);
+      setMovies({ results: [] }); // Очистить список фильмов
+    } else {
       setLoading(true);
       getMoviesInputPagination(value, currentPage).then((data) => {
         if (data.results.length === 0) {
