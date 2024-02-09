@@ -25,7 +25,9 @@ const Card = ({ movie, onRateChange, rating, disableRateChange }) => {
         return genre ? <span key={genre.id}>{genre.name}</span> : null;
       })
     : null;
-
+  const formatedDates = movie.release_date
+    ? format(parseISO(movie.release_date), "MMMM d, yyyy")
+    : "no data";
   return (
     <li className={style.movieitem}>
       <div className={style.movieitem__block}>
@@ -50,7 +52,7 @@ const Card = ({ movie, onRateChange, rating, disableRateChange }) => {
               {Math.round(movie.vote_average)}
             </div>
           </div>
-          <p>{format(parseISO(movie.release_date), "MMMM d, yyyy")}</p>
+          <p>{formatedDates}</p>
           <div className={style.movieitem__genre}>{genres}</div>
           <p className={style.movieitem__overview}>
             {truncateText(movie.overview, 30)}
